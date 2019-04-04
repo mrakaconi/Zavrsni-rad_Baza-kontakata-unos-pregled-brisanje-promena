@@ -1,0 +1,30 @@
+body {
+    background-image: linear-gradient(to right, #816767, #dab674, #bdbd75, #6ac76a, #48a9c7, #479bd3, #6759e4);
+  }
+
+/* Start of Navigation */
+
+  h2 {
+    text-align: center;
+  }
+  .column1 h6, h5{
+      font-size: 20px;
+      color: #28683b;
+  }
+  .column1 {
+    width: 12%;
+    background-color:#d3d3d3;
+    text-align: center;
+  }
+  .column2 {
+    float: left;
+    width: 88%;
+  }
+  .navbar-nav {
+      width: 100%;
+  }
+  .nav-link img {
+      margin-right: 5px;
+  }
+
+/* End Of Navigation */
