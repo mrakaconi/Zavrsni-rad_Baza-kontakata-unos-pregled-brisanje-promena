@@ -37,6 +37,9 @@ p {
 .nav-link img {
     margin-right: 5px;
 }
+.ul.navbar-nav.right {
+  align-content: 
+}
 
 /* End Of Navigation */
 
