@@ -38,7 +38,7 @@ p {
     margin-right: 5px;
 }
 .ul.navbar-nav.right {
-  align-content: 
+  align-content: right;
 }
 
 /* End Of Navigation */
@@ -53,7 +53,7 @@ p {
 }
 
 .student {
-  background-color: #E3F184;
+  background-color: rgb(163, 163, 163);
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 20px;
