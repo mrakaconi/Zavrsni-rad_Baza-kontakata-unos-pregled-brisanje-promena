@@ -1,4 +1,4 @@
-function grid() {
+
 
     for (let i = 0; i < results.length; i++) {
         const user = results[i];
@@ -13,6 +13,4 @@ function grid() {
             $("#okvir").append($okvir);
     }
 };
-
-grid();
 
