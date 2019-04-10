@@ -43,7 +43,7 @@ p {
 
 /* End Of Navigation */
 
-/* Start of Main */
+/* Start of Main Grid View */
 
 #okvir {
   display: flex;
@@ -82,6 +82,31 @@ p {
   }
 }
 
-/* End of Main */
+/* End of Main Grid View */
+
+
+/* Start of Main Grid View */
+
+table {
+  border-collapse: collapse;
+  border: 1px double black;
+  align-content: center;
+  text-align: center;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 4px 16px;
+  font-size: 24px;
+  text-align: center;
+}
+th {
+  background-color: #C8C8C8;
+  cursor: pointer;
+}
+
+/* End of Main Grid View */
+
+
 
 

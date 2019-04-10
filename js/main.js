@@ -1,17 +1,18 @@
-for (let i = 0; i < results.length; i++) {
-    const user = results[i];
+function grid() {
 
-    var $div = $("<div class=contscts></div>");
+    for (let i = 0; i < results.length; i++) {
+        const user = results[i];
 
-    $div.append(`<img src="${user.picture.large}">`);
-    $div.append("<h1>" + user.name.first + "</h1>"),
-    $div.append("<h1>" + user.name.last + "</h1>"),
-    $div.append("<p>" + user.email + "</p>"),
+        var $okvir = $("<div class=contacts></div>");
 
-    $("#okvir").append($div);
+        $okvir.append(`<img src="${user.picture.large}">`);
+        $okvir.append("<h1>" + user.name.first + "</h1>"),
+            $okvir.append("<h1>" + user.name.last + "</h1>"),
+            $okvir.append("<p>" + user.email + "</p>"),
 
+            $("#okvir").append($okvir);
+    }
 };
 
-
-
+grid();
 
