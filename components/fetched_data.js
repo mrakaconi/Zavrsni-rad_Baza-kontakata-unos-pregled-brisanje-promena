@@ -1,4 +1,4 @@
-{
+{            
     var results = [
         {
             gender: "male",
@@ -104,58 +104,7 @@
             },
             nat: "CA"
         },
-        {
-            gender: "female",
-            name: {
-                title: "miss",
-                first: "بیتا",
-                last: "حسینی"
-            },
-            location: {
-                street: "7283 مجاهدین اسلام",
-                city: "قائم‌شهر",
-                state: "اردبیل",
-                postcode: 97190,
-                coordinates: {
-                    latitude: "-78.6462",
-                    longitude: "21.5086"
-                },
-                timezone: {
-                    offset: "-5:00",
-                    description: "Eastern Time (US & Canada), Bogota, Lima"
-                }
-            },
-            email: "بیتا.حسینی@example.com",
-            login: {
-                uuid: "135029b3-5045-455f-bc76-7b68aa2b9a94",
-                username: "silverostrich113",
-                password: "panther1",
-                salt: "dosxcGl7",
-                md5: "7fb2336d667a691454f95136f43fd668",
-                sha1: "b1a98eb2e85886679c49650ab49e6a7a32b972ce",
-                sha256: "588e73ff19ed9a7166f98e792b8bad70c29793782aff7eb7ef2c04f467efcf79"
-            },
-            dob: {
-                date: "1972-08-25T03:49:11Z",
-                age: 46
-            },
-            registered: {
-                date: "2016-10-14T18:30:49Z",
-                age: 2
-            },
-            phone: "076-66390274",
-            cell: "0968-393-7122",
-            id: {
-                name: "",
-                value: null
-            },
-            picture: {
-                large: "https://randomuser.me/api/portraits/women/2.jpg",
-                medium: "https://randomuser.me/api/portraits/med/women/2.jpg",
-                thumbnail: "https://randomuser.me/api/portraits/thumb/women/2.jpg"
-            },
-            nat: "IR"
-        },
+        
         {
             gender: "male",
             name: {

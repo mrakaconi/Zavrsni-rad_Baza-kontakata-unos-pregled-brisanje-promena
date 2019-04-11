@@ -52,7 +52,7 @@ p {
   margin-top: 30px; 
 }
 
-.contscts {
+.contacts {
   background-color: rgb(163, 163, 163);
   margin-right: 10px;
   margin-bottom: 10px;
@@ -66,18 +66,18 @@ p {
   text-transform: capitalize;
 }
 
-.contscts img {
+.contacts img {
   border-radius: 50%;
   filter: sepia(0.1);
   transition: 0.8s;
 }
 
-.contscts img:hover {
+.contacts img:hover {
   filter: sepia(0.8);
 }
 
 @media (min-width: 600px) {
-  .contscts {
+  .contacts {
       width: 300px;
   }
 }
