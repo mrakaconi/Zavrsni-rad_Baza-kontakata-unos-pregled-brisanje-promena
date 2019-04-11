@@ -1,3 +1,4 @@
+function createGrid (){
 for (let i = 0; i < results.length; i++) {
         let user = results[i];
         
@@ -9,17 +10,14 @@ for (let i = 0; i < results.length; i++) {
         $div.append("<p>" + user.email + "</p>"),
 
         $("#okvir").append($div);
+}
 };
-
-// pretraga kontakata unutar "grid" pregleda
-
-
-
+createGrid()
 
 // Pravljenje dinamicke tabele sa preuzimanjem podataka i popunjavanjem celija
 
 function drawTable(tbody) {
-        let user = results;
+        const user = results;
         var tr, td;
         tbody = document.getElementById(tbody);
         table = document.getElementById("tabela");
@@ -44,5 +42,7 @@ function drawTable(tbody) {
         }
 }
 drawTable("podaci");
+
+// pretraga kontakata unutar "grid" pregleda
 
 
