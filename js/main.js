@@ -1,20 +1,21 @@
-function createGrid (){
-for (let i = 0; i < results.length; i++) {
-        let user = results[i];
-        
-        var $div = $("<div class=contacts></div>");
+function createGrid() {
+        for (let i = 0; i < results.length; i++) {
+                let user = results[i];
 
-        $div.append(`<img src="${user.picture.large}">`);
-        $div.append("<h1>" + user.name.first + "</h1>"),
-        $div.append("<h1>" + user.name.last + "</h1>"),
-        $div.append("<p>" + user.email + "</p>"),
+                var $div = $("<div class=contacts></div>");
 
-        $("#okvir").append($div);
-}
+                $div.append(`<img src="${user.picture.large}">`);
+                $div.append("<h1>" + user.name.first + "</h1>"),
+                        $div.append("<h1>" + user.name.last + "</h1>"),
+                        $div.append("<p>" + user.email + "</p>"),
+
+                        $("#okvir").append($div);
+        }
 };
 createGrid()
 
 // Pravljenje dinamicke tabele sa preuzimanjem podataka i popunjavanjem celija
+
 
 function drawTable(tbody) {
         const user = results;
@@ -26,7 +27,6 @@ function drawTable(tbody) {
         for (var i = 0; i < results.length; i++) {
                 tr = tbody.insertRow(tbody.rows.length);
                 td = tr.insertCell(tr.cells.length);
-                td.setAttribute("align", "center");
                 td.innerHTML = user[i].name.first;
                 td = tr.insertCell(tr.cells.length);
                 td.innerHTML = user[i].name.last;
@@ -43,6 +43,8 @@ function drawTable(tbody) {
 }
 drawTable("podaci");
 
-// pretraga kontakata unutar "grid" pregleda
+// Add User Modal
 
-
+$(document).on('click', ".contacts", function () {
+        $("#myModal").modal('show');
+});
