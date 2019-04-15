@@ -23,8 +23,3 @@ function drawTable(tbody) {
     }
 };
 drawTable("podaci");
-
-$(document).on('click', "#add", function () {
-    $("#myModalAdd").modal('show');
-
-});
