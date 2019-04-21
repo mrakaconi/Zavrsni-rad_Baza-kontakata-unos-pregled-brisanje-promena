@@ -1,11 +1,10 @@
 function drawTable(tbody) {
-    const user = results;
+    const user = JSContacts;
     var tr, td;
-    tbody = document.getElementById(tbody);
-    table = document.getElementById("tabela");
+    tbody = document.getElementById("podaci");
 
     // loop through data source
-    for (var i = 0; i < results.length; i++) {
+    for (var i = 0; i < JSContacts.length; i++) {
             tr = tbody.insertRow(tbody.rows.length);
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = user[i].name.first;
@@ -14,12 +13,11 @@ function drawTable(tbody) {
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = user[i].email;
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = '<a><img src="https://img.icons8.com/material/25/000000/visible.png"></a>';
+            td.innerHTML = '<a class="view"><button class="btn" id="gid" onclick="editPanel(view);">View</button></a>';
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = '<a><img src="https://img.icons8.com/ios/25/000000/multi-edit.png"></a>';
+            td.innerHTML = '<a class="edit"><button class="btn" id="gid" onclick="editPanel(edit);">Edit</button></a>';
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = '<a><img src="https://img.icons8.com/windows/25/000000/trash.png"></a>';
-
+            td.innerHTML = '<a class="delete"><button class="btn" id="gid" onclick="editPanel(delete);">Delete</button></a>';
     }
 };
 drawTable("podaci");
