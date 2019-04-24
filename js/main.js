@@ -1,16 +1,18 @@
-const name_title = document.querySelector("id_title").value;
-const name_first = document.querySelector("id_firstname").value;
-const name_last = document.querySelector("id_lasttname").value;
-const email = document.querySelector("id_email").value;
-const phone = document.querySelector("id_phone").value;
-const cell = document.querySelector("id_cell").value;
-const location_state = document.querySelector("id_state").value;
-const location_city = document.querySelector("id_city").value;
-const location_street = document.querySelector("id_street").value;
-const nat = document.querySelector("id_nat").value;
-const dob_age = document.querySelector("id_age").value;
+// const name_title = document.querySelector("id_title").value;
+// const name_first = document.querySelector("id_firstname").value;
+// const name_last = document.querySelector("id_lasttname").value;
+// const email = document.querySelector("id_email").value;
+// const phone = document.querySelector("id_phone").value;
+// const cell = document.querySelector("id_cell").value;
+// const location_state = document.querySelector("id_state").value;
+// const location_city = document.querySelector("id_city").value;
+// const location_street = document.querySelector("id_street").value;
+// const nat = document.querySelector("id_nat").value;
+// const dob_age = document.querySelector("id_age").value;
 
+$(document).ready(function (){
 $("#navbar-frame").load("./components/nav.html")
+});
 
 if (localStorage.getItem("contacts") == null) {
     saveJsonToLS("contacts", results)
@@ -70,12 +72,12 @@ function insertToJSON(JSvar, tempJS) {
     JSvar.push(tempJS);
 };
 
-var newContact = createJsonObj(name_title, name_first, name_last, location_street, location_city, location_state, email, dob_age, phone, cell, nat, picture_large, picture_medium, picture_thumbnail);
+// var newContact = createJsonObj(name_title, name_first, name_last, location_street, location_city, location_state, email, dob_age, phone, cell, nat, picture_large, picture_medium, picture_thumbnail);
 
-insertToJSON(JSContacts, newContact);
+// insertToJSON(JSContacts, newContact);
 
-updateJSON(JSContacts, index, newContact);
+// updateJSON(JSContacts, index, newContact);
 
-saveJsonToLS("contacts", JSContacts);
+// saveJsonToLS("contacts", JSContacts);
 
 
