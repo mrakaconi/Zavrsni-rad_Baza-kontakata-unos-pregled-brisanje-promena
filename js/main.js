@@ -14,6 +14,20 @@ $(document).ready(function (){
 $("#navbar-frame").load("./components/nav.html")
 });
 
+$(".contacts").on('click', function () {
+    $("#myModalInfo").modal('show');
+
+    document.getElementById("firstname").value = localStorage.getItem(name.first);
+    
+});
+$(document).on('click', "#view", function () {
+    $("#myModalInfo").modal('show');
+});
+$(document).on('click', "#add", function () {
+    $("#myModalAdd").modal('show');
+});
+// MODALS END //
+
 if (localStorage.getItem("contacts") == null) {
     saveJsonToLS("contacts", results)
 };

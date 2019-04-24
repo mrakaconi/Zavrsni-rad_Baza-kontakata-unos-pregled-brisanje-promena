@@ -26,6 +26,9 @@ p {
 .ul.navbar-nav.right {
   align-content: right;
 }
+a#add.nav-link {
+  width: auto;
+}
 
 /* End Of Navigation */
 
@@ -168,7 +171,3 @@ input {
 }
 
 /* End of Modal Add */
-
-
-
-
