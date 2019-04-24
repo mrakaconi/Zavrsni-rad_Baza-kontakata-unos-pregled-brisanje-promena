@@ -9,17 +9,17 @@
   <link rel="shortcut icon" type="image/png" href="./favicon.ico" />
   <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="./css/styles_list.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#navbar-frame").load("./components/nav.html")
-    })
-  </script>
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/styles.css" />
+  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+  <script src="./js/jquery-3.3.1.min.js" type="text/javascript"></script>
+
 
 </head>
 
 <body>
+
+  
 
   <!--Navigation Bar-->
 
@@ -29,11 +29,11 @@
 
   <!-- Main Body -->
 
-  <div class="container">
+  <div class="container tabela">
     <table id="tabela">
       <thead>
         <tr>
-          <th id="sortbyfirstname">First Name</th>
+          <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
           <th>view</th>
@@ -47,12 +47,149 @@
 
   <!-- End of Main Body -->
 
+  <!-- MODAL INFO -->
+
+  <div id="myModalInfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="false" style=" overflow: scroll; height:auto;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Contact Info</h4>
+        </div>
+        <div class="modal-body">
+          <p id="firstname">First Name:</p>
+          <p id="lastname">Last Name:</p>
+          <p id="age">Age:</p>
+          <p id="email">email:</p>
+          <p id="phone">Phone:</p>
+          <p id="cell">Cell:</p>
+          <p id="state">State:</p>
+          <p id="city">City:</p>
+          <p id="street">Street:</p>
+          <p id="nat">Drzavljanstvo:</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL INFO END -->
+
+  <!-- MODAL ADD -->
+
+  <div id="myModalAdd" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false"
+    style=" overflow: scroll; height:auto;">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div id="form-wrapper">
+          <form>
+            <hr>
+            <div class="form-group" id="title">
+              <label for="title float-label-control">Titula:</label>
+              <div class="row form-animation">
+                <span id="steps1" class="animation-circle steps">1</span>
+                <select type="text" class="form-control" id="id_title" required>
+                  <option value="Mr."></option>
+                  <option value="Mr.">Mr.</option>
+                  <option value="Ms.">Ms.</option>
+                  <option value="Mrs.">Mrs.</option>
+                </select>
+
+              </div>
+            </div>
+            <div class="form-group" id="ime">
+              <label for="firstname float-label-control">Ime:</label>
+              <div class="row form-animation">
+                <span id="steps2" class="animation-circle steps">2</span>
+                <input type="text" class="form-control" id="id_firstname" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastname float-label-control">Prezime:</label>
+              <div class="row form-animation">
+                <span id="steps3" class="animation-circle steps">3</span>
+                <input type="text" class="form-control" id="id_lastname" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="age float-label-control">Godine:</label>
+              <div class="row form-animation">
+                <span id="steps4" class="animation-circle steps">4</span>
+                <input type="number" class="form-control" id="id_age">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="email float-label-control">Email adresa:</label>
+              <div class="row form-animation">
+                <span id="steps5" class="animation-circle steps">5</span>
+                <input name="email" type="email" class="form-control" id="id_email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone float-label-control">Broj telefona:</label>
+              <div class="row form-animation">
+                <span id="steps6" class="animation-circle steps">6</span>
+                <input type="text" class="form-control" id="id_phone" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cell float-label-control">Broj mobilnog telefona:</label>
+              <div class="row form-animation">
+                <span id="steps7" class="animation-circle steps">7</span>
+                <input type="text" class="form-control" id="id_cell" required>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="state float-label-control">Drzava:</label>
+              <div class="row form-animation">
+                <span id="steps8" class="animation-circle steps">8</span>
+                <input type="text" class="form-control" id="id_state" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="city float-label-control">Grad:</label>
+              <div class="row form-animation">
+                <span id="steps9" class="animation-circle steps">9</span>
+                <input type="text" class="form-control" id="id_city" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="street float-label-control">Ulica:</label>
+              <div class="row form-animation">
+                <span id="steps10" class="animation-circle steps">10</span>
+                <input type="text" class="form-control" id="id_street" required>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="nat float-label-control">Drzavljanstvo:</label>
+              <div class="row form-animation">
+                <span id="steps11" class="animation-circle steps">11</span>
+                <input type="text" class="form-control" id="id_nat" required>
+              </div>
+            </div>
+            <br>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- END OF MODAL ADD -->
+
+
+
   <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="./js/jquery-3.3.1.min.js" type="text/javascript"></script>
-  <script src="./js/fetched_data.js" type="text/javascript"></script>
   <script src="./js/main.js" type="text/javascript"></script>
-  <script src="./js/modals.js" type="text/javascript"></script>
+  <script src="./js/fetched_data.js" type="text/javascript"></script>
   <script src="./js/list.js" type="text/javascript"></script>
+
+  <script src="./js/modals.js" type="text/javascript"></script>
 
 
 </body>

@@ -6,10 +6,10 @@ function createGrid(jSonContactList) {
             $div.append(`<img src="${user.picture.large}">`);
             
             $div.append("<h1>" + user.name.first + "</h1>"),
-                    $div.append("<h1>" + user.name.last + "</h1>"),
-                    $div.append("<p>" + user.email + "</p>"),
+            $div.append("<h1>" + user.name.last + "</h1>"),
+            $div.append("<p>" + user.email + "</p>"),
 
-                    $("#okvir").append($div);
+            $("#okvir").append($div);
     }
 };
-createGrid(JSContacts)
+createGrid(JSContacts);

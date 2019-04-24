@@ -1,0 +1,174 @@
+body {
+  background: linear-gradient(to right, #816767, #dab674, #bdbd75, #6ac76a, #48a9c7, #479bd3, #6759e4);
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  color: #468B00;
+}
+
+p {
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .contacts {
+      width: 300px;
+  }
+}
+
+/* Start of Navigation */
+.navbar-nav {
+    width: 100%;
+}
+.nav-link img {
+    margin-right: 5px;
+}
+.ul.navbar-nav.right {
+  align-content: right;
+}
+
+/* End Of Navigation */
+
+/* Start of Main Grid View */
+
+#okvir {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px; 
+}
+
+.contacts {
+  background-color: rgb(163, 163, 163);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.contacts img {
+  border-radius: 50%;
+  filter: sepia(0.1);
+  transition: 0.8s;
+}
+
+.contacts img:hover {
+  filter: sepia(0.8);
+}
+
+/* End of Main Grid View */
+
+/* Start of Main table View */
+
+table {
+border-collapse: collapse;
+border: 1px double black;
+align-content: center;
+text-align: center;
+margin-top: 30px;
+}
+th,
+td {
+border: 1px solid black;
+padding: 4px 16px;
+font-size: 24px;
+text-align: center;
+}
+th {
+background-color: #C8C8C8;
+cursor: pointer;
+}
+/* End of Main table View */
+
+/* Start of ModalAdd */
+
+#main-wrapper{
+  max-width: 300px;
+  background-color: white;
+  height: auto;
+  position:relative;
+  margin: 2% auto;
+  border: 2px solid #c51919
+}
+.header-wrapper {
+  background-color: #2962FF;
+  display: flex;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  padding-left: 20px; 
+}
+.header-wrapper h2, h3 {
+  padding-left: 50px;
+  margin-top: 15px;
+}
+.progress-ring {
+  align-content: space-between;
+}
+#progressbar {
+  display: none;
+}
+.progress-ring__circle {
+  transition: 0.35s stroke-dashoffset;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  text-decoration-color: red; 
+}
+.header-wrapper input {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 80px;
+}
+#procenat {
+  border: 2px solid white;
+  border-radius: 100%;
+  padding: 4px;
+  position: absolute;
+}
+#dva {
+  margin-top: 30px;
+}
+#form-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.animation-circle {
+  display: inline-block;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, .3);
+  color: #39a4f5;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 34px;
+}
+#FirstName:focus {
+  border-bottom: 2px blue solid;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  outline: none
+}
+.form-group {
+  position: relative;
+}
+input {
+  outline: crimson;
+  max-width: 200px;
+}
+#form-wrapper label {
+  padding-left: 40px;
+}
+#form-wrapper input {
+  margin-left: 20px;
+}
+
+/* End of Modal Add */
+
+
+
+
