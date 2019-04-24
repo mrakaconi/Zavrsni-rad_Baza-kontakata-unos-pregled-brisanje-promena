@@ -10,22 +10,23 @@
 // const nat = document.querySelector("id_nat").value;
 // const dob_age = document.querySelector("id_age").value;
 
-$(document).ready(function (){
-$("#navbar-frame").load("./components/nav.html")
+// MODALS and NAV-BAR //
+
+$(document).ready(function () {
+    $("#navbar-frame").load("./components/nav.html");
+    $(".contacts").on('click', function () {
+        $("#myModalInfo").modal('show');
+    });
 });
 
-$(".contacts").on('click', function () {
-    $("#myModalInfo").modal('show');
-
-    document.getElementById("#firstname").value = localStorage.getItem(JSContacts[i].name.first);
-    
-});
 $(document).on('click', "#view", function () {
     $("#myModalInfo").modal('show');
 });
+
 $(document).on('click', "#add", function () {
     $("#myModalAdd").modal('show');
 });
+
 // MODALS END //
 
 if (localStorage.getItem("contacts") == null) {

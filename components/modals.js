@@ -1,7 +1,5 @@
 $(".contacts").on('click', function () {
     $("#myModalInfo").modal('show');
-
-    document.getElementById("#firstname").value = localStorage.getItem(JSContacts.name.first);
     
 });
 $(document).on('click', "#view", function () {
