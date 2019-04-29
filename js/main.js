@@ -1,15 +1,3 @@
-// const name_title = document.querySelector("id_title").value;
-// const name_first = document.querySelector("id_firstname").value;
-// const name_last = document.querySelector("id_lasttname").value;
-// const email = document.querySelector("id_email").value;
-// const phone = document.querySelector("id_phone").value;
-// const cell = document.querySelector("id_cell").value;
-// const location_state = document.querySelector("id_state").value;
-// const location_city = document.querySelector("id_city").value;
-// const location_street = document.querySelector("id_street").value;
-// const nat = document.querySelector("id_nat").value;
-// const dob_age = document.querySelector("id_age").value;
-
 // MODALS and NAV-BAR //
 
 $(document).ready(function () {
@@ -17,14 +5,13 @@ $(document).ready(function () {
     $(".contacts").on('click', function () {
         $("#myModalInfo").modal('show');
     });
-});
+    $(document).on('click', "#view", function () {
+        $("#myModalInfo").modal('show');
+    });
 
-$(document).on('click', "#view", function () {
-    $("#myModalInfo").modal('show');
-});
-
-$(document).on('click', "#add", function () {
-    $("#myModalAdd").modal('show');
+    $(document).on('click', "#add", function () {
+        $("#myModalAdd").modal('show');
+    });
 });
 
 // MODALS END //
@@ -51,6 +38,9 @@ function delFromJon(JSvar, index) {
 var JSContacts = LoadJsonFromLS("contacts");
 
 function createJsonObj(name_title, name_first, name_last, location_street, location_city, location_state, email, dob_age, phone, cell, nat, picture_large, picture_medium, picture_thumbnail) {
+
+
+
     var tempJS = {
         name: {
             title: name_title,
@@ -87,7 +77,21 @@ function insertToJSON(JSvar, tempJS) {
     JSvar.push(tempJS);
 };
 
-// var newContact = createJsonObj(name_title, name_first, name_last, location_street, location_city, location_state, email, dob_age, phone, cell, nat, picture_large, picture_medium, picture_thumbnail);
+var name_title = document.getElementById("id_title").value;
+var name_first = document.getElementById("id_firstname").value;
+var name_last = document.getElementById("id_lastname").value;
+var email = document.getElementById("id_email").value;
+var phone = document.getElementById("id_phone").value;
+var cell = document.getElementById("id_cell").value;
+var location_state = document.getElementById("id_state").value;
+var location_city = document.getElementById("id_city").value;
+var location_street = document.getElementById("id_street").value;
+var nat = document.getElementById("id_nat").value;
+var dob_age = document.getElementById("id_age").value;
+
+var newContact = createJsonObj(name_title, name_first, name_last, email, phone, cell, location_state, location_city, location_street, nat, dob_age);
+
+// picture_large, picture_medium, picture_thumbnail
 
 // insertToJSON(JSContacts, newContact);
 
@@ -95,4 +99,59 @@ function insertToJSON(JSvar, tempJS) {
 
 // saveJsonToLS("contacts", JSContacts);
 
+// Search in GRID view
+
+function myFunction() {
+    var input, filter, form, div, h1, i, txtValue;
+    input = document.getElementById("kriterijum");
+    filter = input.value.toUpperCase();
+    form = document.getElementById("okvir");
+    div = form.getElementsByTagName("div");
+    // FOR loop za pretragu po imenu (first.name)
+    for (i = 0; i < div.length; i++) {
+        h1 = div[i].getElementsByTagName("h1")[0];
+        txtValue = h1.textContent || h1.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            div[i].style.display = "";
+        } else {
+            div[i].style.display = "none";
+        }
+    };
+    // FOR loop za pretragu po prezimenu (last.name)
+
+    for (i = 0; i < div.length; i++) {
+        h2 = div[i].getElementsByTagName("h2")[0];
+        txtValue = h2.textContent || h2.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            div[i].style.display = "";
+        } else {
+            div[i].style.display = "none";
+        }
+    }
+};
+
+// end of Search in GRID view
+
+// Search in LIST view
+
+function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("kriterijum");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("podaci");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+
+// end of Search in LIST view
 

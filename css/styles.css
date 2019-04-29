@@ -6,6 +6,10 @@ h1 {
   font-family: 'Lato', sans-serif;
   color: #468B00;
 }
+h2 {
+  font-family: 'Lato', sans-serif;
+  color: #468B00;
+}
 
 p {
   text-align: center;
@@ -175,3 +179,10 @@ input {
 .pointer {
   cursor: pointer;
 }
+select#id_title {
+  margin-left: 25px;
+}
+#form-wrapper input {
+  margin-left: 25px;
+}
+

@@ -26,11 +26,21 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Contact Info</h4>
-          <a id="edit"><button class="btn edit">Edit</button></a>
-          <a id="delete"><button class="btn delete">Delete</button></a>
+          <button class="btn edit">Edit</button>
+          <button class="btn delete">Delete</button>
         </div>
         <div class="modal-body">
-          <div id="okvirinfo"></div>
+          <p id="id_info_title">Title:</p>
+          <p id="id_info_firstname">First Name:</p>
+          <p id="id_info_lastname">Last Name:</p>
+          <p id="id_info_age">Age:</p>
+          <p id="id_info_email">email:</p>
+          <p id="id_info_phone">Phone:</p>
+          <p id="id_info_cell">Cell:</p>
+          <p id="id_info_state">State:</p>
+          <p id="id_info_city">City:</p>
+          <p id="id_info_street">Street:</p>
+          <p id="id_info_nat">Drzavljanstvo:</p>
         </div>
       </div>
     </div>
@@ -51,8 +61,8 @@
               <label for="title float-label-control">Titula:</label>
               <div class="row form-animation">
                 <span id="steps1" class="animation-circle steps">1</span>
-                <select type="text" class="form-control" id="id_title" required>
-                  <option value="Mr."></option>
+                <select type="text" id="id_title" required>
+                  <option></option>
                   <option value="Mr.">Mr.</option>
                   <option value="Ms.">Ms.</option>
                   <option value="Mrs.">Mrs.</option>
@@ -64,21 +74,21 @@
               <label for="firstname float-label-control">Ime:</label>
               <div class="row form-animation">
                 <span id="steps2" class="animation-circle steps">2</span>
-                <input type="text" class="form-control" id="id_firstname" required>
+                <input type="text" id="id_firstname" required>
               </div>
             </div>
             <div class="form-group">
               <label for="lastname float-label-control">Prezime:</label>
               <div class="row form-animation">
                 <span id="steps3" class="animation-circle steps">3</span>
-                <input type="text" class="form-control" id="id_lastname" required>
+                <input type="text" id="id_lastname" required>
               </div>
             </div>
             <div class="form-group">
               <label for="age float-label-control">Godine:</label>
               <div class="row form-animation">
                 <span id="steps4" class="animation-circle steps">4</span>
-                <input type="number" class="form-control" id="id_age">
+                <input type="number" id="id_age">
               </div>
             </div>
             <hr>
@@ -86,21 +96,21 @@
               <label for="email float-label-control">Email adresa:</label>
               <div class="row form-animation">
                 <span id="steps5" class="animation-circle steps">5</span>
-                <input name="email" type="email" class="form-control" id="id_email" required>
+                <input name="email" type="email" id="id_email" required>
               </div>
             </div>
             <div class="form-group">
               <label for="phone float-label-control">Broj telefona:</label>
               <div class="row form-animation">
                 <span id="steps6" class="animation-circle steps">6</span>
-                <input type="text" class="form-control" id="id_phone" required>
+                <input type="text" id="id_phone" required>
               </div>
             </div>
             <div class="form-group">
               <label for="cell float-label-control">Broj mobilnog telefona:</label>
               <div class="row form-animation">
                 <span id="steps7" class="animation-circle steps">7</span>
-                <input type="text" class="form-control" id="id_cell" required>
+                <input type="text" id="id_cell" required>
               </div>
             </div>
             <hr>
@@ -108,21 +118,21 @@
               <label for="state float-label-control">Drzava:</label>
               <div class="row form-animation">
                 <span id="steps8" class="animation-circle steps">8</span>
-                <input type="text" class="form-control" id="id_state" required>
+                <input type="text" id="id_state" required>
               </div>
             </div>
             <div class="form-group">
               <label for="city float-label-control">Grad:</label>
               <div class="row form-animation">
                 <span id="steps9" class="animation-circle steps">9</span>
-                <input type="text" class="form-control" id="id_city" required>
+                <input type="text" id="id_city" required>
               </div>
             </div>
             <div class="form-group">
               <label for="street float-label-control">Ulica:</label>
               <div class="row form-animation">
                 <span id="steps10" class="animation-circle steps">10</span>
-                <input type="text" class="form-control" id="id_street" required>
+                <input type="text" id="id_street" required>
               </div>
             </div>
             <hr>
@@ -130,13 +140,14 @@
               <label for="nat float-label-control">Drzavljanstvo:</label>
               <div class="row form-animation">
                 <span id="steps11" class="animation-circle steps">11</span>
-                <input type="text" class="form-control" id="id_nat" required>
+                <input type="text" id="id_nat" required>
               </div>
             </div>
             <br>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="insertToJSON()">Save changes</button>
+              <button type="button" class="btn btn-primary" onclick="insertToJSON(JSContacts, newContact);">Save changes</button>
+              <button type="submit" class="btn btn-primary" onclick="saveJsonToLS(`contacts`, JSContacts);">Submit</button>
             </div>
           </form>
         </div>
