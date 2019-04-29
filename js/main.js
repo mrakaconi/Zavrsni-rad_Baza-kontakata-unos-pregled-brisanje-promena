@@ -107,8 +107,10 @@ function myFunction() {
     filter = input.value.toUpperCase();
     form = document.getElementById("okvir");
     div = form.getElementsByTagName("div");
+
     // FOR loop za pretragu po imenu (first.name)
     for (i = 0; i < div.length; i++) {
+        
         h1 = div[i].getElementsByTagName("h1")[0];
         txtValue = h1.textContent || h1.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
