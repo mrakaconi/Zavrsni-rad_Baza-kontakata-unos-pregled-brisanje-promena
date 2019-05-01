@@ -10,7 +10,6 @@ $(document).ready(function () {
     $(".view").on('click', function () {
         $("#myModalInfo").modal('show');
     });
-
     $(document).on('click', "#add", function () {
         $("#myModalAdd").modal('show');
     });
