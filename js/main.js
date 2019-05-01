@@ -132,7 +132,7 @@ function search() {
     if (window.location.href.indexOf("index.html") > -1) {
         var input, filter, form, div, h1, h2, i, txtValue;
         input = document.getElementById("kriterijum");
-        // filter = input.value.toUpperCase();
+        filter = input.value.toUpperCase();
         form = document.getElementById("okvir");
         div = form.getElementsByTagName("div");
 
@@ -177,6 +177,7 @@ function search() {
         }
     }
 }
+
 
 
 
