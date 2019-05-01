@@ -12,7 +12,7 @@ function drawTable(tbody) {
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = user[i].email;
         td = tr.insertCell(tr.cells.length);
-        td.innerHTML = '<a id="view"><button class="btn view">View</button></a>';
+        td.innerHTML = '<a class="view"><button class="btn view">View</button></a>';
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = '<a id="edit"><button class="btn edit">Edit</button></a>';
         td = tr.insertCell(tr.cells.length);

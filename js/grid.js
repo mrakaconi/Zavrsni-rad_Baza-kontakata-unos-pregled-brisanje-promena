@@ -1,7 +1,7 @@
 function createGrid(jSonContactList) {
     for (let i = 0; i < jSonContactList.length; i++) {
             let user = jSonContactList[i];
-            var $div = $("<div class=contacts></div>");
+            var $div = $("<div infogrid='" + i + "' class=contacts></div>");
 
             $div.append(`<img src="${user.picture.large}">`);
             
