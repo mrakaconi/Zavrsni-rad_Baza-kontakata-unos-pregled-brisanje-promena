@@ -2,23 +2,37 @@
 
 $(document).ready(function () {
     $("#navbar-frame").load("./components/nav.html");
-    $(".contacts").on('click', function () {
-        var userIndex = this.getAttribute("infogrid")
-        userInfo(userIndex);
+
+    $(document).on('click', ".contacts", function () {
+        var userIndexGrid = this.getAttribute("infogrid")
+        console.log(userInfoGrid);
+        userInfoGrid(userIndexGrid);
         $("#myModalInfo").modal('show');
+        
+        
     });
-    $(".view").on('click', function () {
-        $("#myModalInfo").modal('show');
+    $(document).on('click', ".view", function () {
+        var userIndexList = JSContacts[document.getElementsByTagName("infolist")]
+        alert(userIndexList);
+        
+        // userInfoGrid(userIndexList);
+        // $("#myModalInfo").modal('show');
+    });
+    $(document).on('click', ".edit", function () {
+        $("#myModalAdd").modal('show');
     });
     $(document).on('click', "#add", function () {
         $("#myModalAdd").modal('show');
     });
+    $(document).on('click', ".delete", function () {
+
+    });
 });
 
-function userInfo(userIndex) {
-    var oneContact = JSContacts[userIndex];
+function userInfoGrid(userIndexGrid) {
+    var oneContact = JSContacts[userIndexGrid];
 
-    document.getElementById("id_info_title").innerText = "Titula: " + oneContact.name.title;
+    document.getElementById("id_info_title").innerHTML = "Titula: " + oneContact.name.title;
     document.getElementById("id_info_firstname").innerText = "Ime: " + oneContact.name.first;
     document.getElementById("id_info_lastname").innerText = "Prezime: " + oneContact.name.last;
     document.getElementById("id_info_age").innerText = "Godine: " + oneContact.dob.age;
@@ -31,7 +45,22 @@ function userInfo(userIndex) {
     document.getElementById("id_info_nat").innerText = "Drzavljanstvo: " + oneContact.nat;
 
 };
+// function userInfoList(userIndexList) {
+//     var oneContact = JSContacts[userIndexList];
 
+//     document.getElementById("id_info_title").innerHTML = "Titula: " + oneContact.name.title;
+//     document.getElementById("id_info_firstname").innerText = "Ime: " + oneContact.name.first;
+//     document.getElementById("id_info_lastname").innerText = "Prezime: " + oneContact.name.last;
+//     document.getElementById("id_info_age").innerText = "Godine: " + oneContact.dob.age;
+//     document.getElementById("id_info_email").innerText = "Email: " + oneContact.email;
+//     document.getElementById("id_info_phone").innerText = "Telefon: " + oneContact.phone;
+//     document.getElementById("id_info_cell").innerText = "Mobilni: " + oneContact.cell;
+//     document.getElementById("id_info_state").innerText = "Drzava: " + oneContact.location.state;
+//     document.getElementById("id_info_city").innerText = "Grad: " + oneContact.location.city;
+//     document.getElementById("id_info_street").innerText = "Ulica: " + oneContact.location.street;
+//     document.getElementById("id_info_nat").innerText = "Drzavljanstvo: " + oneContact.nat;
+
+// };
 // MODALS END //
 
 if (localStorage.getItem("contacts") == null) {
@@ -41,6 +70,8 @@ if (localStorage.getItem("contacts") == null) {
 function LoadJsonFromLS(LsKey) {
     var JSString = localStorage.getItem(LsKey)
     var JSvar = JSON.parse(JSString);
+    console.log(JSvar);
+
     return JSvar;
 };
 
@@ -56,8 +87,6 @@ function delFromJon(JSvar, index) {
 var JSContacts = LoadJsonFromLS("contacts");
 
 function createJsonObj(name_title, name_first, name_last, location_street, location_city, location_state, email, dob_age, phone, cell, nat, picture_large, picture_medium, picture_thumbnail) {
-
-
 
     var tempJS = {
         name: {
@@ -109,8 +138,10 @@ function addUser(mojTip) {
 
     var newContact = createJsonObj(name_title, name_first, name_last, email, phone, cell, location_state, location_city, location_street, nat, dob_age);
 
-    if (mojTip == "insert")
+    if (mojTip == "insert") {
         insertToJSON(JSContacts, newContact);
+        saveJsonToLS("contacts", JSContacts);
+    }
 };
 
 
@@ -146,17 +177,6 @@ function search() {
                 div[i].style.display = "none";
             }
         };
-        // FOR loop za pretragu po prezimenu (last.name)
-
-        for (i = 0; i < div.length; i++) {
-            h2 = div[i].getElementsByTagName("h2")[0];
-            txtValue = h2.textContent || h2.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                div[i].style.display = "";
-            } else {
-                div[i].style.display = "none";
-            }
-        }
     } else {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("kriterijum");

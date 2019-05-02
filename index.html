@@ -31,7 +31,7 @@
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Contact Info</h4>
           <button class="btn edit">Edit</button>
-          <button class="btn delete">Delete</button>
+          <button id="delete" class="btn delete">Delete</button>
         </div>
         <div class="modal-body">
           <p id="id_info_title"></p>
@@ -62,10 +62,10 @@
           <form>
             <hr>
             <div class="form-group" id="title">
-              <label for="title float-label-control">Titula:</label>
+              <label for="float-label-control">Titula:</label>
               <div class="row form-animation">
                 <span id="steps1" class="animation-circle steps">1</span>
-                <select type="text" id="id_title" >
+                <select type="text" id="id_title" name="name.title">
                   <option></option>
                   <option value="Mr.">Mr.</option>
                   <option value="Ms.">Ms.</option>
@@ -75,82 +75,82 @@
               </div>
             </div>
             <div class="form-group" id="ime">
-              <label for="firstname float-label-control">Ime:</label>
+              <label for="float-label-control">Ime:</label>
               <div class="row form-animation">
                 <span id="steps2" class="animation-circle steps">2</span>
-                <input type="text" id="id_firstname" >
+                <input type="text" id="id_firstname" name="name.first">
               </div>
             </div>
             <div class="form-group">
-              <label for="lastname float-label-control">Prezime:</label>
+              <label for="float-label-control">Prezime:</label>
               <div class="row form-animation">
                 <span id="steps3" class="animation-circle steps">3</span>
-                <input type="text" id="id_lastname" >
+                <input type="text" id="id_lastname" name="name.last">
               </div>
             </div>
             <div class="form-group">
-              <label for="age float-label-control">Godine:</label>
+              <label for="float-label-control">Godine:</label>
               <div class="row form-animation">
                 <span id="steps4" class="animation-circle steps">4</span>
-                <input type="number" id="id_age">
+                <input type="number" id="id_age" name="dob.age">
               </div>
             </div>
             <hr>
             <div class="form-group">
-              <label for="email float-label-control">Email adresa:</label>
+              <label for="float-label-control">Email adresa:</label>
               <div class="row form-animation">
                 <span id="steps5" class="animation-circle steps">5</span>
-                <input name="email" type="email" id="id_email" >
+                <input name="email" type="email" id="id_email" name="email">
               </div>
             </div>
             <div class="form-group">
-              <label for="phone float-label-control">Broj telefona:</label>
+              <label for="float-label-control">Broj telefona:</label>
               <div class="row form-animation">
                 <span id="steps6" class="animation-circle steps">6</span>
-                <input type="text" id="id_phone" >
+                <input type="text" id="id_phone" name="phone">
               </div>
             </div>
             <div class="form-group">
-              <label for="cell float-label-control">Broj mobilnog telefona:</label>
+              <label for="float-label-control">Broj mobilnog telefona:</label>
               <div class="row form-animation">
                 <span id="steps7" class="animation-circle steps">7</span>
-                <input type="text" id="id_cell" >
+                <input type="text" id="id_cell" name="cell">
               </div>
             </div>
             <hr>
             <div class="form-group">
-              <label for="state float-label-control">Drzava:</label>
+              <label for="float-label-control">Drzava:</label>
               <div class="row form-animation">
                 <span id="steps8" class="animation-circle steps">8</span>
-                <input type="text" id="id_state" >
+                <input type="text" id="id_state" name="location.state">
               </div>
             </div>
             <div class="form-group">
-              <label for="city float-label-control">Grad:</label>
+              <label for="float-label-control">Grad:</label>
               <div class="row form-animation">
                 <span id="steps9" class="animation-circle steps">9</span>
-                <input type="text" id="id_city" >
+                <input type="text" id="id_city" name="location.city">
               </div>
             </div>
             <div class="form-group">
-              <label for="street float-label-control">Ulica:</label>
+              <label for="float-label-control">Ulica:</label>
               <div class="row form-animation">
                 <span id="steps10" class="animation-circle steps">10</span>
-                <input type="text" id="id_street" >
+                <input type="text" id="id_street" name="location.street">
               </div>
             </div>
             <hr>
             <div class="form-group">
-              <label for="nat float-label-control">Drzavljanstvo:</label>
+              <label for="float-label-control">Drzavljanstvo:</label>
               <div class="row form-animation">
                 <span id="steps11" class="animation-circle steps">11</span>
-                <input type="text" id="id_nat" >
+                <input type="text" id="id_nat" name="nat">
               </div>
             </div>
             <br>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="addUser();;">Save changes</button>
+              <button type="button" class="btn btn-primary" onclick="addUser('update');;">Save changes</button>
               <button type="button" class="btn btn-primary" onclick="addUser('insert');">Submit</button>
             </div>
           </form>

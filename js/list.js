@@ -5,6 +5,9 @@ function drawTable(tbody) {
 
     for (var i = 0; i < JSContacts.length; i++) {
         tr = tbody.insertRow(tbody.rows.length);
+        tr.setAttribute("infolist", i)
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = i + 1;
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = user[i].name.first;
         td = tr.insertCell(tr.cells.length);
