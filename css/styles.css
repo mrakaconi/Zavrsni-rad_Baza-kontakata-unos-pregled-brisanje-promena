@@ -15,7 +15,7 @@ p {
   text-align: center;
 }
 @media (min-width: 600px) {
-  .contacts {
+  #contacts {
       width: 300px;
   }
 }
@@ -45,7 +45,7 @@ a#add.nav-link {
   margin-top: 30px; 
 }
 
-.contacts {
+#contacts {
   background-color: rgb(163, 163, 163);
   margin-right: 10px;
   margin-bottom: 10px;
@@ -54,13 +54,13 @@ a#add.nav-link {
   border-radius: 8px;
 }
 
-.contacts img {
+#contacts img {
   border-radius: 50%;
   filter: sepia(0.1);
   transition: 0.8s;
 }
 
-.contacts img:hover {
+#contacts img:hover {
   filter: sepia(0.8);
 }
 
@@ -90,53 +90,6 @@ cursor: pointer;
 
 /* Start of ModalAdd */
 
-#main-wrapper{
-  max-width: 300px;
-  background-color: white;
-  height: auto;
-  position:relative;
-  margin: 2% auto;
-  border: 2px solid #c51919
-}
-.header-wrapper {
-  background-color: #2962FF;
-  display: flex;
-  height: 100%;
-  position: relative;
-  text-align: center;
-  padding-left: 20px; 
-}
-.header-wrapper h2, h3 {
-  padding-left: 50px;
-  margin-top: 15px;
-}
-.progress-ring {
-  align-content: space-between;
-}
-#progressbar {
-  display: none;
-}
-.progress-ring__circle {
-  transition: 0.35s stroke-dashoffset;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  text-decoration-color: red; 
-}
-.header-wrapper input {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 80px;
-}
-#procenat {
-  border: 2px solid white;
-  border-radius: 100%;
-  padding: 4px;
-  position: absolute;
-}
-#dva {
-  margin-top: 30px;
-}
 #form-wrapper {
   padding-left: 20px;
   padding-right: 20px;
@@ -153,16 +106,7 @@ cursor: pointer;
   text-align: center;
   line-height: 34px;
 }
-#FirstName:focus {
-  border-bottom: 2px blue solid;
-  border-top: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  outline: none
-}
-.form-group {
-  position: relative;
-}
+
 input {
   outline: crimson;
   max-width: 200px;
@@ -171,7 +115,7 @@ input {
   padding-left: 40px;
 }
 #form-wrapper input {
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 /* End of Modal Add */
@@ -182,7 +126,5 @@ input {
 select#id_title {
   margin-left: 25px;
 }
-#form-wrapper input {
-  margin-left: 25px;
-}
+
 

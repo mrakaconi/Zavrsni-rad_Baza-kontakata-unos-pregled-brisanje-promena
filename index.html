@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
     crossorigin="anonymous"></script>
   <script src="./js/jquery-3.3.1.min.js" type="text/javascript"></script>
-  
+
 
 
 
@@ -20,7 +20,7 @@
 
 <body>
 
-    
+
 
   <!-- MODAL INFO -->
 
@@ -30,8 +30,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Contact Info</h4>
-          <button class="btn edit">Edit</button>
-          <button id="delete" class="btn delete">Delete</button>
+          <button class="btn grid-edit">Edit</button>
+          <button id="delete" class="btn grid-delete">Delete</button>
         </div>
         <div class="modal-body">
           <p id="id_info_title"></p>
@@ -62,96 +62,96 @@
           <form>
             <hr>
             <div class="form-group" id="title">
-              <label for="float-label-control">Titula:</label>
+              <label for="title">Titula:</label>
               <div class="row form-animation">
                 <span id="steps1" class="animation-circle steps">1</span>
-                <select type="text" id="id_title" name="name.title">
+                <select type="text" id="id_title" name="title">
                   <option></option>
-                  <option value="Mr.">Mr.</option>
-                  <option value="Ms.">Ms.</option>
-                  <option value="Mrs.">Mrs.</option>
+                  <option>Mr.</option>
+                  <option>Ms.</option>
+                  <option>Mrs.</option>
                 </select>
-
               </div>
             </div>
             <div class="form-group" id="ime">
-              <label for="float-label-control">Ime:</label>
+              <label for="first">Ime:</label>
               <div class="row form-animation">
                 <span id="steps2" class="animation-circle steps">2</span>
-                <input type="text" id="id_firstname" name="name.first">
+                <input type="text" id="id_firstname" name="first">
               </div>
             </div>
             <div class="form-group">
-              <label for="float-label-control">Prezime:</label>
+              <label for="last">Prezime:</label>
               <div class="row form-animation">
                 <span id="steps3" class="animation-circle steps">3</span>
-                <input type="text" id="id_lastname" name="name.last">
+                <input type="text" id="id_lastname" name="last">
               </div>
             </div>
             <div class="form-group">
-              <label for="float-label-control">Godine:</label>
+              <label for="age">Godine:</label>
               <div class="row form-animation">
                 <span id="steps4" class="animation-circle steps">4</span>
-                <input type="number" id="id_age" name="dob.age">
+                <input type="number" id="id_age" name="age">
               </div>
             </div>
             <hr>
             <div class="form-group">
-              <label for="float-label-control">Email adresa:</label>
+              <label for="email">Email adresa:</label>
               <div class="row form-animation">
                 <span id="steps5" class="animation-circle steps">5</span>
                 <input name="email" type="email" id="id_email" name="email">
               </div>
             </div>
             <div class="form-group">
-              <label for="float-label-control">Broj telefona:</label>
+              <label for="phone">Broj telefona:</label>
               <div class="row form-animation">
                 <span id="steps6" class="animation-circle steps">6</span>
-                <input type="text" id="id_phone" name="phone">
+                <input type="tel" id="id_phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
               </div>
             </div>
             <div class="form-group">
-              <label for="float-label-control">Broj mobilnog telefona:</label>
+              <label for="cell">Broj mobilnog telefona:</label>
               <div class="row form-animation">
                 <span id="steps7" class="animation-circle steps">7</span>
-                <input type="text" id="id_cell" name="cell">
+                <input type="tel" id="id_cell" name="cell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
               </div>
             </div>
             <hr>
             <div class="form-group">
-              <label for="float-label-control">Drzava:</label>
+              <label for="state">Drzava:</label>
               <div class="row form-animation">
                 <span id="steps8" class="animation-circle steps">8</span>
-                <input type="text" id="id_state" name="location.state">
+                <input type="text" id="id_state" name="state">
               </div>
             </div>
             <div class="form-group">
-              <label for="float-label-control">Grad:</label>
+              <label for="city">Grad:</label>
               <div class="row form-animation">
                 <span id="steps9" class="animation-circle steps">9</span>
-                <input type="text" id="id_city" name="location.city">
+                <input type="text" id="id_city" name="city">
               </div>
             </div>
             <div class="form-group">
-              <label for="float-label-control">Ulica:</label>
+              <label for="street">Ulica:</label>
               <div class="row form-animation">
                 <span id="steps10" class="animation-circle steps">10</span>
-                <input type="text" id="id_street" name="location.street">
+                <input type="text" id="id_street" name="street">
               </div>
             </div>
             <hr>
             <div class="form-group">
-              <label for="float-label-control">Drzavljanstvo:</label>
+              <label for="nat">Drzavljanstvo:</label>
               <div class="row form-animation">
-                <span id="steps11" class="animation-circle steps">11</span>
+                <span class="animation-circle steps">11</span>
                 <input type="text" id="id_nat" name="nat">
               </div>
             </div>
             <br>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="addUser('update');;">Save changes</button>
-              <button type="button" class="btn btn-primary" onclick="addUser('insert');">Submit</button>
+              <!-- <button type="button" class="btn btn-primary" onclick="addUser('update', this);">Save changes</button> -->
+              <!-- <button type="button" class="btn btn-primary" onclick="addUser('insert');">Submit</button> -->
+              <button id="submit" type="button" class="btn btn-primary">Submit</button>
             </div>
           </form>
         </div>
@@ -177,6 +177,7 @@
   <script src="./js/fetched_data.js" type="text/javascript"></script>
   <script src="./js/main.js" type="text/javascript"></script>
   <script src="./js/grid.js" type="text/javascript"></script>
+  <script src="./js/edit.js" type="text/javascript"></script>
 
 </body>
 

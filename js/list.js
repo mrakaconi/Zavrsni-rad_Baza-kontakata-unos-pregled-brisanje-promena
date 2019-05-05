@@ -1,13 +1,10 @@
-function drawTable(tbody) {
+function drawTable() {
     const user = JSContacts;
     var tr, td;
     tbody = document.getElementById("podaci");
 
     for (var i = 0; i < JSContacts.length; i++) {
         tr = tbody.insertRow(tbody.rows.length);
-        tr.setAttribute("infolist", i)
-        td = tr.insertCell(tr.cells.length);
-        td.innerHTML = i + 1;
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = user[i].name.first;
         td = tr.insertCell(tr.cells.length);
@@ -15,15 +12,23 @@ function drawTable(tbody) {
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = user[i].email;
         td = tr.insertCell(tr.cells.length);
-        td.innerHTML = '<a class="view"><button class="btn view">View</button></a>';
+        td.innerHTML = '<a class="view"><button class="btn list-view" data-infolist="' + i + '">View</button></a>';
         td = tr.insertCell(tr.cells.length);
-        td.innerHTML = '<a id="edit"><button class="btn edit">Edit</button></a>';
+        td.innerHTML = '<a id="edit"><button class="btn list-edit" data-infolist="' + i + '">Edit</button></a>';
         td = tr.insertCell(tr.cells.length);
-        td.innerHTML = '<a id="delete"><button class="btn delete">Delete</button></a>';
+        td.innerHTML = '<a id="delete"><button class="btn list-delete" data-infolist="' + i + '">Delete</button></a>';
     }
 };
 
 var element = document.querySelector("tabela");
 if (typeof (element) == 'undefined' || element == null) {
-    drawTable("podaci");
-};
+    drawTable();
+}
+
+function clearTable() {
+    $("#podaci").html('');
+}
+function recreateTable() {
+    clearTable();
+    drawTable();
+}
