@@ -1,79 +1,106 @@
-// MODALS and NAV-BAR //
+// provera da podaci vec postoje u LocalStorage-u
+if (localStorage.getItem("contacts") == null) {
+    // snima podatke u LocalStorage
+    saveJsonToLS("contacts", results)
+};
 
-$(document).ready(function () {
-    $("#navbar-frame").load("./components/nav.html");
+// Ucitavanje i parsiranje podataka unutar LS-a
+function LoadJsonFromLS(LsKey) {
+    var JSString = localStorage.getItem(LsKey)
+    var JSvar = JSON.parse(JSString);
+    return JSvar;
+};
+// Snimanje podataka u LS
+function saveJsonToLS(LsKey, JSvar) {
+    localStorage.setItem(LsKey, JSON.stringify(JSvar));
+};
 
-    // grid
-    $(document).on('click', "#contacts", function () {
-        var userIndexGrid = this.getAttribute("data-infogrid");
-        userInfoGrid(userIndexGrid);
-        $("#myModalInfo").find(".grid-edit").attr("data-infogrid", userIndexGrid);
-        $("#myModalInfo").find(".grid-delete").attr("data-infogrid", userIndexGrid);
-        $("#myModalInfo").modal('show');
-    });
-    $(document).on('click', ".grid-edit", function () {
-        var userIndexEditGrid = this.getAttribute("data-infogrid");
-        userEditGrid(userIndexEditGrid);
-        $("#submit").attr("data-action", "edit");
-        $("#submit").attr("data-infogrid", userIndexEditGrid);
-        $("#myModalAdd").modal('show');
-    });
-    $(document).on('click', ".grid-delete", function () {
-        var userIndexEditGrid = this.getAttribute("data-infogrid");
-        delFromJson(JSContacts, userIndexEditGrid);
-        $("#myModalInfo").modal('hide');
-        recreateGrid(JSContacts);
-        //TODO: uncomment save
-        //saveJsonToLS("contacts", JSContacts);
+// Brisanje iz LS-a
+function delFromJson(JSvar, index) {
+    JSvar.splice(index, 1);
+    return JSvar;
+};
 
+function updateJSON(JSvar, index, tempJS) {
+    JSvar[index] = tempJS
+};
 
-    });
+function insertToJSON(JSvar, tempJS) {
+    JSvar.push(tempJS);
+};
 
+// Varijabla koju cemo koristiti unutar aplikacije za manipulaciju podacima
+var JSContacts = LoadJsonFromLS("contacts");
 
+// Kreiranje GRID pregleda kontakata 
+if (window.location.href.indexOf("index.html") > -1) {
+    function createGrid(jSonContactList) {
+        for (let i = 0; i < jSonContactList.length; i++) {
+            let user = jSonContactList[i];
+            let picLarge = `${user.picture.large}`;
+            var $div = $("<div data-infogrid='" + i + "' id=contacts></div>");
+            if (!picLarge) {
+                picLarge = './img/no-image.jpg'
+            }
+            $div.append('<img src="' + picLarge + '">');
 
-    // list
-    $(document).on('click', ".list-view", function () {
-        let userIndexList = this.getAttribute("data-infolist");
-        userInfoGrid(userIndexList);
-        $("#myModalInfo").modal('show');
-    });
-    $(document).on('click', ".list-edit", function () {
-        let userIndexList = this.getAttribute("data-infolist");
-        userEditGrid(userIndexList);
-        $("#submit").attr("data-action", "edit");
-        $("#submit").attr("data-infolist", userIndexList);
-        $("#myModalAdd").modal('show');
-    });
-    $(document).on('click', ".list-delete", function () {
-        let userIndexList = this.getAttribute("data-infolist");
-        delFromJson(JSContacts, userIndexList);
-        $(this).parents("tr").remove();
-        //TODO: uncomment save
-        //saveJsonToLS("contacts", JSContacts);
+            $div.append("<h1>" + user.name.first + "</h1>"),
+                $div.append("<h2>" + user.name.last + "</h2>"),
+                $div.append("<p>" + user.email + "</p>"),
 
-
-    });
-
-
-
-    $(document).on('click', "#add", function () {
-        $("#submit").attr("data-action", "add");
-        $("#myModalAdd").modal('show');
-    });
-
-    $(document).on('click', "#submit", function () {
-        let action = this.getAttribute('data-action');
-        let index;
-        if (this.getAttribute("data-infolist")) {
-            index = this.getAttribute("data-infolist");
-        } else {
-            index = this.getAttribute("data-infogrid");
+                $("#okvir").append($div);
         }
-        addUser(action, index);
-    });
+    };
+    createGrid(JSContacts);
 
-});
+    function clearGrid() {
+        $("#okvir").html('');
+    }
 
+    function recreateGrid(jSonContactList) {
+        clearGrid();
+        createGrid(jSonContactList);
+    };
+
+    // Kreiranje LIST pregleda kontakata
+} else if (window.location.href.indexOf("index_list.html") > -1) {
+    function drawTable() {
+        const user = JSContacts;
+        var tr, td;
+        tbody = document.getElementById("podaci");
+
+        for (var i = 0; i < JSContacts.length; i++) {
+            tr = tbody.insertRow(tbody.rows.length);
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = user[i].name.first;
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = user[i].name.last;
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = user[i].email;
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = '<a class="view"><button class="btn list-view" data-infolist="' + i + '">View</button></a>';
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = '<a id="edit"><button class="btn list-edit" data-infolist="' + i + '">Edit</button></a>';
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = '<a id="delete"><button class="btn list-delete" data-infolist="' + i + '">Delete</button></a>';
+        }
+    };
+
+    var element = document.querySelector("tabela");
+    if (typeof (element) == 'undefined' || element == null) {
+        drawTable();
+    }
+
+    function clearTable() {
+        $("#podaci").html('');
+    }
+    function recreateTable() {
+        clearTable();
+        drawTable();
+    }
+}
+
+// Prikazivanje podataka unutar INFO modala
 function userInfoGrid(userIndexGrid) {
     console.log(userIndexGrid);
 
@@ -92,6 +119,8 @@ function userInfoGrid(userIndexGrid) {
     document.getElementById("id_info_nat").innerText = "Drzavljanstvo: " + oneContact.nat;
 
 };
+
+// Popunjavanje modala ADD sa podacima trenutnog korisnika radi potencijalne izmene
 function userEditGrid(userIndexEditGrid) {
     var oneContact = JSContacts[userIndexEditGrid];
 
@@ -109,30 +138,7 @@ function userEditGrid(userIndexEditGrid) {
 
 };
 
-// MODALS END //
-
-if (localStorage.getItem("contacts") == null) {
-    saveJsonToLS("contacts", results)
-};
-
-function LoadJsonFromLS(LsKey) {
-    var JSString = localStorage.getItem(LsKey)
-    var JSvar = JSON.parse(JSString);
-
-    return JSvar;
-};
-
-function saveJsonToLS(LsKey, JSvar) {
-    localStorage.setItem(LsKey, JSON.stringify(JSvar));
-};
-
-function delFromJson(JSvar, index) {
-    JSvar.splice(index, 1);
-    return JSvar;
-};
-
-var JSContacts = LoadJsonFromLS("contacts");
-
+// Kreiranje novog kontakta kroz ADD modal
 function createJsonObj(name_title, name_first, name_last, location_street, location_city, location_state, email, dob_age, phone, cell, nat, picture_large, picture_medium, picture_thumbnail) {
 
     var tempJS = {
@@ -163,14 +169,8 @@ function createJsonObj(name_title, name_first, name_last, location_street, locat
     return tempJS;
 };
 
-function updateJSON(JSvar, index, tempJS) {
-    JSvar[index] = tempJS
-};
-
-function insertToJSON(JSvar, tempJS) {
-    JSvar.push(tempJS);
-};
-function addUser(mojTip, index=null) {
+// 
+function addUser(mojTip, index = null) {
     var name_title = document.getElementById("id_title").value;
     var name_first = document.getElementById("id_firstname").value;
     var name_last = document.getElementById("id_lastname").value;
@@ -190,8 +190,6 @@ function addUser(mojTip, index=null) {
         picture_large = '';
     }
     var newContact = createJsonObj(name_title, name_first, name_last, location_street, location_city, location_state, email, dob_age, phone, cell, nat, picture_large, '', '');
-
-    //var newContact = createJsonObj(name_title, name_first, name_last, email, phone, cell, location_state, location_city, location_street, nat, dob_age);
 
     if (mojTip == "add") {
         insertToJSON(JSContacts, newContact);
@@ -217,11 +215,7 @@ function addUser(mojTip, index=null) {
     }
 };
 
-
-
-
-// Search fields
-
+// Pretraga kontakata kroz input polje
 function search() {
     if (window.location.href.indexOf("index.html") > -1) {
         var input, filter, form, div, h1, i, txtValue;
@@ -256,4 +250,69 @@ function search() {
             }
         }
     }
-}
+};
+
+// Razni dogadjaji
+$(document).ready(function () {
+    $("#navbar-frame").load("./components/nav.html");
+
+    // grid view
+    $(document).on('click', "#contacts", function () {
+        var userIndexGrid = this.getAttribute("data-infogrid");
+        userInfoGrid(userIndexGrid);
+        $("#myModalInfo").find(".grid-edit").attr("data-infogrid", userIndexGrid);
+        $("#myModalInfo").find(".grid-delete").attr("data-infogrid", userIndexGrid);
+        $("#myModalInfo").modal('show');
+    });
+    $(document).on('click', ".grid-edit", function () {
+        var userIndexEditGrid = this.getAttribute("data-infogrid");
+        userEditGrid(userIndexEditGrid);
+        $("#submit").attr("data-action", "edit");
+        $("#submit").attr("data-infogrid", userIndexEditGrid);
+        $("#myModalAdd").modal('show');
+        saveJsonToLS("contacts", JSContacts);
+    });
+    $(document).on('click', ".grid-delete", function () {
+        var userIndexEditGrid = this.getAttribute("data-infogrid");
+        delFromJson(JSContacts, userIndexEditGrid);
+        $("#myModalInfo").modal('hide');
+        recreateGrid(JSContacts);
+        saveJsonToLS("contacts", JSContacts);
+
+
+    });
+
+    // list view
+    $(document).on('click', ".list-view", function () {
+        let userIndexList = this.getAttribute("data-infolist");
+        userInfoGrid(userIndexList);
+        $("#myModalInfo").modal('show');
+    });
+    $(document).on('click', ".list-edit", function () {
+        let userIndexList = this.getAttribute("data-infolist");
+        userEditGrid(userIndexList);
+        $("#submit").attr("data-action", "edit");
+        $("#submit").attr("data-infolist", userIndexList);
+        $("#myModalAdd").modal('show');
+    });
+    $(document).on('click', ".list-delete", function () {
+        let userIndexList = this.getAttribute("data-infolist");
+        delFromJson(JSContacts, userIndexList);
+        $(this).parents("tr").remove();
+        saveJsonToLS("contacts", JSContacts);
+    });
+    $(document).on('click', "#add", function () {
+        $("#submit").attr("data-action", "add");
+        $("#myModalAdd").modal('show');
+    });
+    $(document).on('click', "#submit", function () {
+        let action = this.getAttribute('data-action');
+        let index;
+        if (this.getAttribute("data-infolist")) {
+            index = this.getAttribute("data-infolist");
+        } else {
+            index = this.getAttribute("data-infogrid");
+        }
+        addUser(action, index);
+    });
+});
