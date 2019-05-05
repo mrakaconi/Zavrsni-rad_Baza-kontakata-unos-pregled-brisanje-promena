@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="./css/styles.css" />
   <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
     crossorigin="anonymous"></script>
-  <script src="./js/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="./js/jquery-3.3.1.min.js"></script>
 
 </head>
 
@@ -57,11 +57,11 @@
           <form>
             <hr>
             <div class="form-group" id="title">
-              <label for="title">Titula:</label>
+              <label>Titula:</label>
               <div class="row form-animation">
                 <span id="steps1" class="animation-circle steps">1</span>
                 <select id="id_title" name="title">
-                  <option></option>
+                  <!-- <option></option> -->
                   <option>Mr.</option>
                   <option>Ms.</option>
                   <option>Mrs.</option>
@@ -69,21 +69,21 @@
               </div>
             </div>
             <div class="form-group" id="ime">
-              <label for="first">Ime:</label>
+              <label>Ime:</label>
               <div class="row form-animation">
                 <span id="steps2" class="animation-circle steps">2</span>
                 <input type="text" id="id_firstname" name="first" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="last">Prezime:</label>
+              <label>Prezime:</label>
               <div class="row form-animation">
                 <span id="steps3" class="animation-circle steps">3</span>
                 <input type="text" id="id_lastname" name="last" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="age">Godine:</label>
+              <label>Godine:</label>
               <div class="row form-animation">
                 <span id="steps4" class="animation-circle steps">4</span>
                 <input type="number" id="id_age" name="age">
@@ -91,21 +91,22 @@
             </div>
             <hr>
             <div class="form-group">
-              <label for="email">Email adresa:</label>
+              <label>Email adresa:</label>
               <div class="row form-animation">
                 <span id="steps5" class="animation-circle steps">5</span>
-                <input name="email" type="email" id="id_email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <input type="email" id="id_email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  required>
               </div>
             </div>
             <div class="form-group">
-              <label for="phone">Broj telefona:</label>
+              <label>Broj telefona:</label>
               <div class="row form-animation">
                 <span id="steps6" class="animation-circle steps">6</span>
                 <input type="tel" id="id_phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="cell">Broj mobilnog telefona:</label>
+              <label>Broj mobilnog telefona:</label>
               <div class="row form-animation">
                 <span id="steps7" class="animation-circle steps">7</span>
                 <input type="tel" id="id_cell" name="cell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
@@ -113,21 +114,21 @@
             </div>
             <hr>
             <div class="form-group">
-              <label for="state">Drzava:</label>
+              <label>Drzava:</label>
               <div class="row form-animation">
                 <span id="steps8" class="animation-circle steps">8</span>
                 <input type="text" id="id_state" name="state" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="city">Grad:</label>
+              <label>Grad:</label>
               <div class="row form-animation">
                 <span id="steps9" class="animation-circle steps">9</span>
                 <input type="text" id="id_city" name="city" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="street">Ulica:</label>
+              <label>Ulica:</label>
               <div class="row form-animation">
                 <span id="steps10" class="animation-circle steps">10</span>
                 <input type="text" id="id_street" name="street" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
@@ -135,7 +136,7 @@
             </div>
             <hr>
             <div class="form-group">
-              <label for="nat">Drzavljanstvo:</label>
+              <label>Drzavljanstvo:</label>
               <div class="row form-animation">
                 <span class="animation-circle steps">11</span>
                 <input type="text" id="id_nat" name="nat">
@@ -166,9 +167,9 @@
 
   <!-- End of Main Body -->
 
-  <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="./js/fetched_data.js" type="text/javascript"></script>
-  <script src="./js/main.js" type="text/javascript"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/fetched_data.js"></script>
+  <script src="./js/main.js"></script>
 
 </body>
 
