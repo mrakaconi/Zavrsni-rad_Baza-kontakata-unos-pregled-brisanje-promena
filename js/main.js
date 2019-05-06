@@ -85,12 +85,10 @@ if (window.location.href.indexOf("index.html") > -1) {
             td.innerHTML = '<a id="delete"><button class="btn list-delete" data-infolist="' + i + '">Delete</button></a>';
         }
     };
-
     var element = document.querySelector("tabela");
     if (typeof (element) == 'undefined' || element == null) {
         drawTable();
     }
-
     function clearTable() {
         $("#podaci").html('');
     }
@@ -274,13 +272,13 @@ $(document).ready(function () {
     });
     $(document).on('click', ".grid-delete", function () {
         var userIndexEditGrid = this.getAttribute("data-infogrid");
-        confirm("Are you sure?")
-        delFromJson(JSContacts, userIndexEditGrid);
-        $("#myModalInfo").modal('hide');
-        recreateGrid(JSContacts);
-        saveJsonToLS("contacts", JSContacts);
-
-
+        var del = confirm("Are you sure?");
+        if (del == true) {
+            delFromJson(JSContacts, userIndexEditGrid);
+            $("#myModalInfo").modal('hide');
+            recreateGrid(JSContacts);
+            saveJsonToLS("contacts", JSContacts);
+        };
     });
 
     // list view
@@ -298,12 +296,14 @@ $(document).ready(function () {
     });
     $(document).on('click', ".list-delete", function () {
         let userIndexList = this.getAttribute("data-infolist");
-        confirm("Are you sure?")
-        delFromJson(JSContacts, userIndexList);
-        $(this).parents("tr").remove();
-        saveJsonToLS("contacts", JSContacts);
+        let del = confirm("Are you sure?");
+        if (del == true) {
+            delFromJson(JSContacts, userIndexList);
+            $(this).parents("tr").remove();
+            saveJsonToLS("contacts", JSContacts);
+        };
     });
-    
+
     $(document).on('click', "#add", function () {
         $("#submit").attr("data-action", "add");
         $("#myModalAdd").modal('show');
