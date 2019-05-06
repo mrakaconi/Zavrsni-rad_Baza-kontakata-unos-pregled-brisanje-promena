@@ -274,6 +274,7 @@ $(document).ready(function () {
     });
     $(document).on('click', ".grid-delete", function () {
         var userIndexEditGrid = this.getAttribute("data-infogrid");
+        confirm("Are you sure?")
         delFromJson(JSContacts, userIndexEditGrid);
         $("#myModalInfo").modal('hide');
         recreateGrid(JSContacts);
@@ -297,10 +298,12 @@ $(document).ready(function () {
     });
     $(document).on('click', ".list-delete", function () {
         let userIndexList = this.getAttribute("data-infolist");
+        confirm("Are you sure?")
         delFromJson(JSContacts, userIndexList);
         $(this).parents("tr").remove();
         saveJsonToLS("contacts", JSContacts);
     });
+    
     $(document).on('click', "#add", function () {
         $("#submit").attr("data-action", "add");
         $("#myModalAdd").modal('show');

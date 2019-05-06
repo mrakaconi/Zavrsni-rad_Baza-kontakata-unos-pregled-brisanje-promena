@@ -70,14 +70,14 @@
               </div>
             </div>
             <div class="form-group" id="ime">
-              <label>Ime:</label>
+              <label>Ime:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps2" class="animation-circle steps">2</span>
                 <input type="text" id="id_firstname" name="first" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label>Prezime:</label>
+              <label>Prezime:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps3" class="animation-circle steps">3</span>
                 <input type="text" id="id_lastname" name="last" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
@@ -92,21 +92,21 @@
             </div>
             <hr>
             <div class="form-group">
-              <label>Email adresa:</label>
+              <label>Email adresa:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps5" class="animation-circle steps">5</span>
                 <input id="id_email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label>Broj telefona:</label>
+              <label>Broj telefona:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps6" class="animation-circle steps">6</span>
                 <input type="tel" id="id_phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
               </div>
             </div>
             <div class="form-group">
-              <label>Broj mobilnog telefona:</label>
+              <label>Broj mobilnog telefona:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps7" class="animation-circle steps">7</span>
                 <input type="tel" id="id_cell" name="cell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
@@ -114,21 +114,21 @@
             </div>
             <hr>
             <div class="form-group">
-              <label>Drzava:</label>
+              <label>Drzava:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps8" class="animation-circle steps">8</span>
                 <input type="text" id="id_state" name="state" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label>Grad:</label>
+              <label>Grad:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps9" class="animation-circle steps">9</span>
                 <input type="text" id="id_city" name="city" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
               </div>
             </div>
             <div class="form-group">
-              <label>Ulica:</label>
+              <label>Ulica:<span aria-hidden="true" class="required">*</span></label>
               <div class="row form-animation">
                 <span id="steps10" class="animation-circle steps">10</span>
                 <input type="text" id="id_street" name="street" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
@@ -145,7 +145,7 @@
             <br>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button id="submit" type="button" class="btn btn-primary">Submit</button>
+              <button type="submit" id="submit" value="Submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
         </div>

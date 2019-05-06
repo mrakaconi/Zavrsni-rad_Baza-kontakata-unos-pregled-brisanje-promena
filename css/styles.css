@@ -126,5 +126,9 @@ input {
 select#id_title {
   margin-left: 25px;
 }
+.required {
+  margin-left: 10px;
+  color: red
+}
 
 
